@@ -1,7 +1,7 @@
 import "assets/admin/admin-main.scss";
 import React from "react";
-import { Link, Outlet, useMatch, useResolvedPath } from "react-router-dom";
-function CustomLink({ to, children, ...props }: { to: string; children: React.ReactNode }) {
+import { Outlet } from "react-router-dom";
+/* function CustomLink({ to, children, ...props }: { to: string; children: React.ReactNode }) {
   let resolved = useResolvedPath(to);
   let match = useMatch({ path: resolved.pathname, end: true });
   let classN = "text-white no-underline font-semibold block w-full border-l-2 border-solid border-transparent relative";
@@ -13,7 +13,7 @@ function CustomLink({ to, children, ...props }: { to: string; children: React.Re
       {children}
     </Link>
   );
-}
+} */
 function AdminMaster() {
   return (
     <div className="text-base text-black">

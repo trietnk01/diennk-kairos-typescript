@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { notifySlice } from "slice";
 import { getMsgNotify, getTypeNotify, isShowNotify } from "store/selector";
-import { clearTimeout } from "timers";
 
 function Notify() {
   const dispatch = useDispatch();
@@ -10,11 +9,11 @@ function Notify() {
     dispatch(notifySlice.actions.hideNotify());
   }
   useEffect(() => {
-    let timer = setTimeout(() => {
+    const timeout = setTimeout(() => {
       dispatch(notifySlice.actions.hideNotify());
     }, 3000);
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timeout);
     };
   });
 

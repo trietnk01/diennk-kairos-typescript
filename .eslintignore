@@ -1,2 +1,8 @@
-/src/reportWebVitals.ts
-/src/setupTests.ts
+build/*
+public/*
+src/react-app-env.d.ts
+src/serviceWorker.ts
+src/@types/index.d.ts
+src/reportWebVitals.ts
+node_modules
+.github
