@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "NotoSans_Black";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Black.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Black.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Black.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Black.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_BlackItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-BlackItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-BlackItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-BlackItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-BlackItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_Bold";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Bold.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Bold.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Bold.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Bold.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_BoldItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-BoldItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-BoldItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-BoldItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-BoldItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_ExtraBold";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraBold.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraBold.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraBold.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraBold.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_ExtraBoldItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraBoldItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraBoldItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraBoldItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraBoldItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_ExtraLight";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraLight.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraLight.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraLight.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraLight.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_ExtraLightItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraLightItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ExtraLightItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraLightItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraLightItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_Italic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Italic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Italic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Italic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Italic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_Light";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Light.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Light.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Light.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_LightItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-LightItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-LightItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-LightItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-LightItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_Medium";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Medium.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Medium.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Medium.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Medium.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_MediumItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-MediumItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-MediumItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-MediumItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-MediumItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_Regular";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Regular.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Regular.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Regular.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Regular.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_SemiBold";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-SemiBold.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-SemiBold.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-SemiBold.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-SemiBold.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_SemiBoldItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-SemiBoldItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-SemiBoldItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-SemiBoldItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-SemiBoldItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_Thin";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Thin.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-Thin.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-Thin.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-Thin.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSans_ThinItalic";
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ThinItalic.eot");
+  src: url("#{$fonts_Noto_Sans}/NotoSans-ThinItalic.eot?#iefix") format("embedded-opentype"), url("#{$fonts_Noto_Sans}/NotoSans-ThinItalic.woff2") format("woff2"), url("#{$fonts_Noto_Sans}/NotoSans-ThinItalic.woff") format("woff"), url("#{$fonts_Noto_Sans}/NotoSans-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+$f_FontAwesome: "FontAwesome";
+$f_NotoSans_Black: "NotoSans_Black";
+$f_NotoSans_BlackItalic: "NotoSans_BlackItalic";
+$f_NotoSans_Bold: "NotoSans_Bold";
+$f_NotoSans_BoldItalic: "NotoSans_BoldItalic";
+$f_NotoSans_ExtraBold: "NotoSans_ExtraBold";
+$f_NotoSans_ExtraBoldItalic: "NotoSans_ExtraBoldItalic";
+$f_NotoSans_ExtraLight: "NotoSans_ExtraLight";
+$f_NotoSans_ExtraLightItalic: "NotoSans_ExtraLightItalic";
+$f_NotoSans_Italic: "NotoSans_Italic";
+$f_NotoSans_Light: "NotoSans_Light";
+$f_NotoSans_LightItalic: "NotoSans_LightItalic";
+$f_NotoSans_Medium: "NotoSans_Medium";
+$f_NotoSans_MediumItalic: "NotoSans_MediumItalic";
+$f_NotoSans_Regular: "NotoSans_Regular";
+$f_NotoSans_SemiBold: "NotoSans_SemiBold";
+$f_NotoSans_SemiBoldItalic: "NotoSans_SemiBoldItalic";
+$f_NotoSans_Thin: "NotoSans_Thin";
+$f_NotoSans_ThinItalic: "NotoSans_ThinItalic";
+$f_Roboto: "Roboto", sans-serif;
+$f_Manrope: "Manrope", sans-serif;

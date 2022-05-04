@@ -1,0 +1,15 @@
+.font-frontpage-global {
+  font-family: $f_NotoSans_Regular;
+  font-size: 16px;
+  color: $black;
+  .kairos-container {
+    max-width: $container_width;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .big-screen {
+    @media only screen and (min-width: 1921px) {
+      max-width: $container_width;
+    }
+  }
+}
