@@ -1,15 +1,16 @@
+import notifyAction from "actions/notifyAction";
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useEffect } from "react";
-import notifySelector from "redux/notifySelector";
-import { hideNotify } from "slice/notifySlice";
+import notifySelector from "selectors/notifySelector";
+
 function Notify() {
   const dispatch = useAppDispatch();
   function handleClose(): void {
-    dispatch(hideNotify());
+    dispatch(notifyAction().hideNotify());
   }
   useEffect(() => {
     const timeout = setTimeout(() => {
-      dispatch(hideNotify());
+      dispatch(notifyAction().hideNotify());
     }, 3000);
     return () => {
       clearTimeout(timeout);
@@ -17,9 +18,9 @@ function Notify() {
   });
 
   let alertHtml: React.ReactNode = null;
-  const isShow: boolean = useAppSelector(notifySelector.isShowNotify);
-  const typeNotify: string = useAppSelector(notifySelector.getTypeNotify);
-  const msgNotify: Array<string> = useAppSelector(notifySelector.getMsgNotify);
+  const isShow: boolean = useAppSelector(notifySelector().isShow);
+  const typeNotify: string = useAppSelector(notifySelector().type);
+  const msgNotify: Array<string> = useAppSelector(notifySelector().msg);
   let elShow: string = "";
   let displayNotify: string = "hidden";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {

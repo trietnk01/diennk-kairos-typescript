@@ -1,4 +1,4 @@
-interface OUser {
+export interface OUser {
   avatar: string;
   createdAt: string;
   id: string;

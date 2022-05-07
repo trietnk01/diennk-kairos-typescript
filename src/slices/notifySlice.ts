@@ -19,5 +19,4 @@ export const notifySlice = createSlice({
     },
   },
 });
-export const { showNotify, hideNotify } = notifySlice.actions;
 export default notifySlice.reducer;

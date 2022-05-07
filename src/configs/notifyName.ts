@@ -8,5 +8,7 @@ export const NOTIFY_NAME = {
   NOTI_DELETE_FAIL: "Delete failed",
   NOTI_LOGIN_FAIL: "Login failed",
   NOTI_PERMISSION_DENINED: "Permission denined",
-  NOTI_CONFIRMED_DELETE: "Do you confirm to delete ?",
+  NOTI_CONFIRMED_DELETE: "Do you want to delete ?",
+  NOTI_WRONG_USERNAME: "Wrong username",
+  NOTI_WRONG_PASSWORD: "Wrong password",
 };

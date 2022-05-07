@@ -8,13 +8,12 @@ export const loadingSlice = createSlice({
   name: "loading-slice",
   initialState,
   reducers: {
-    show: (state) => {
+    showLoading: (state) => {
       state.isShow = true;
     },
-    hide: (state) => {
+    hideLoading: (state) => {
       state.isShow = false;
     },
   },
 });
-export const { show, hide } = loadingSlice.actions;
 export default loadingSlice.reducer;
