@@ -1,5 +1,5 @@
 export interface INotify {
-  isShow: boolean;
+  isShow?: boolean;
   type: string;
   msg: Array<string>;
 }

@@ -58,7 +58,6 @@ function Login() {
         dispatch(loadingAction().hideLoading());
         dispatch(
           notifyAction().showNotify({
-            isShow: true,
             type: typeNotify,
             msg,
           })
@@ -67,7 +66,6 @@ function Login() {
       .catch(function (err) {
         dispatch(
           notifyAction().showNotify({
-            isShow: true,
             type: NOTIFY_NAME.NOTI_TYPE_DANGER,
             msg: err.message,
           })

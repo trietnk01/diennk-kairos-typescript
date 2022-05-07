@@ -8,5 +8,5 @@ export interface OUser {
 }
 export interface IUser {
   isLogin: boolean;
-  userInfo: OUser | null;
+  userInfo: OUser;
 }

@@ -3,7 +3,7 @@ import { END_POINT } from "configs";
 import { IUser } from "models/IUser";
 const initialState: IUser = {
   isLogin: false,
-  userInfo: null,
+  userInfo: {},
 };
 export const userSlice = createSlice({
   name: "user-slice",
@@ -16,7 +16,7 @@ export const userSlice = createSlice({
     },
     logout: (state) => {
       state.isLogin = false;
-      state.userInfo = null;
+      state.userInfo = {};
       localStorage.setItem(END_POINT.USER_LOGIN, "");
     },
   },
