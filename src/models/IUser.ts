@@ -1,4 +1,12 @@
+interface OUser {
+  avatar: string;
+  createdAt: string;
+  id: string;
+  name: string;
+  password: string;
+  username: string;
+}
 export interface IUser {
   isLogin: boolean;
-  userInfo: any | null;
+  userInfo: OUser | null;
 }

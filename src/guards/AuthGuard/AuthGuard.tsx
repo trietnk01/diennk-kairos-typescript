@@ -1,11 +1,12 @@
 import { PATH_NAME } from "configs";
+import { IChildren } from "models/IChildren";
 import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { checkedLogin } from "redux/selector";
+import { useAppSelector } from "hooks";
+import userSelector from "redux/userSelector";
 
-function AuthGuard({ children }: { children: React.ReactNode }) {
-  const isAuth: boolean = useSelector(checkedLogin);
+function AuthGuard({ children }: IChildren) {
+  const isAuth: boolean = useAppSelector(userSelector.checkedLogin);
   if (!isAuth) return <Navigate to={`/${PATH_NAME.ADMIN_LOGIN}`} />;
   return <Fragment>{children}</Fragment>;
 }

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loadingReducer from "slice/loadingReducer";
-import notifyReducer from "slice/notifyReducer";
-import userReducer from "slice/userReducer";
+import loadingReducer from "slice/loadingSlice";
+import notifyReducer from "slice/notifySlice";
+import userReducer from "slice/userSlice";
 
 const store = configureStore({
   reducer: {

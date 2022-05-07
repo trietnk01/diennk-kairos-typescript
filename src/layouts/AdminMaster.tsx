@@ -1,9 +1,9 @@
 import "assets/admin/admin-main.scss";
 import React from "react";
 import { Outlet } from "react-router-dom";
-/* function CustomLink({ to, children, ...props }: { to: string; children: React.ReactNode }) {
-  let resolved = useResolvedPath(to);
-  let match = useMatch({ path: resolved.pathname, end: true });
+/* function CustomLink({ to, children, ...props }: ICustomlink) {
+  const resolved = useResolvedPath(to);
+  const match = useMatch({ path: resolved.pathname, end: true });
   let classN = "text-white no-underline font-semibold block w-full border-l-2 border-solid border-transparent relative";
   if (match) {
     classN += " active";
