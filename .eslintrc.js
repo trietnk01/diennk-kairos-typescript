@@ -22,10 +22,10 @@ module.exports = {
     ],
     "rules": {
         "semi": ["error", "always"],
-        "quotes": ["error", "double"],
-        "react/display-name": "off",
-        "react/prop-types": "off",
-        "@typescript-eslint/no-inferrable-types": "off",
-    /* "no-unused-vars": "off", */
+    "quotes": ["error", "double"],
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "no-unused-vars": "off",    
     }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { notifySlice } from "slice";
-import { getMsgNotify, getTypeNotify, isShowNotify } from "store/selector";
+import { getMsgNotify, getTypeNotify, isShowNotify } from "redux/selector";
 
 function Notify() {
   const dispatch = useDispatch();

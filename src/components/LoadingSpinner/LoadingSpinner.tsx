@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { checkedShowLoading } from "store/selector";
+import { checkedShowLoading } from "redux/selector";
 function LoadingSpinner() {
   const isShow: boolean = useSelector(checkedShowLoading);
   return (

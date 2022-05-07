@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { END_POINT } from "configs";
-
-export default createSlice({
+import { IUser } from "models/IUser";
+const initialState: IUser = {
+  isLogin: false,
+  userInfo: null,
+};
+export const userSlice = createSlice({
   name: "user-slice",
-  initialState: {
-    isLogin: false,
-    userInfo: {},
-  },
+  initialState,
   reducers: {
     login: (state, { payload }) => {
       state.isLogin = true;
@@ -15,8 +16,10 @@ export default createSlice({
     },
     logout: (state) => {
       state.isLogin = false;
-      state.userInfo = {};
+      state.userInfo = null;
       localStorage.setItem(END_POINT.USER_LOGIN, "");
     },
   },
 });
+export const { login, logout } = userSlice.actions;
+export default userSlice.reducer;
