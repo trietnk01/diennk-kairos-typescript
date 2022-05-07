@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { checkedShowLoading } from "store/selector";
 function LoadingSpinner() {
-  let isShow: boolean = useSelector(checkedShowLoading);
+  const isShow: boolean = useSelector(checkedShowLoading);
   return (
     <React.Fragment>
       {isShow && (

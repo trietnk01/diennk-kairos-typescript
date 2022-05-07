@@ -18,9 +18,9 @@ function Notify() {
   });
 
   let alertHtml: React.ReactNode = null;
-  let isShow: boolean = useSelector(isShowNotify);
-  let typeNotify: string = useSelector(getTypeNotify);
-  let msgNotify: string = useSelector(getMsgNotify);
+  const isShow: boolean = useSelector(isShowNotify);
+  const typeNotify: string = useSelector(getTypeNotify);
+  const msgNotify: string = useSelector(getMsgNotify);
   let elShow: string = "";
   let displayNotify: string = "hidden";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {
