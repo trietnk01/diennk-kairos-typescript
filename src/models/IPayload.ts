@@ -1,3 +1,3 @@
-export interface IPayload {
+export default interface IPayload {
   payload: any;
 }

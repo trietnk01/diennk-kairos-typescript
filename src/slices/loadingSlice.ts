@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ILoading } from "models/ILoading";
+import IStateLoading from "models/IStateLoading";
 
-const initialState: ILoading = {
+const initialState: IStateLoading = {
   isShow: false,
 };
-export const loadingSlice = createSlice({
+export default createSlice({
   name: "loading-slice",
   initialState,
   reducers: {
@@ -16,4 +16,3 @@ export const loadingSlice = createSlice({
     },
   },
 });
-export default loadingSlice.reducer;

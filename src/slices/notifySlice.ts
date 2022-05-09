@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { INotify } from "models/INotify";
-const initialState: INotify = {
+import IStateNotify from "models/IStateNotify";
+const initialState: IStateNotify = {
   isShow: false,
   type: "success",
   msg: [],
 };
-export const notifySlice = createSlice({
+export default createSlice({
   name: "notify-slice",
   initialState,
   reducers: {
-    showNotify: (state, action: PayloadAction<INotify>) => {
+    showNotify: (state, action: PayloadAction<IStateNotify>) => {
       state.isShow = true;
       state.type = action.payload.type;
       state.msg = action.payload.msg;
@@ -19,4 +19,3 @@ export const notifySlice = createSlice({
     },
   },
 });
-export default notifySlice.reducer;

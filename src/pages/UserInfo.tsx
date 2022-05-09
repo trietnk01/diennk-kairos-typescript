@@ -1,17 +1,30 @@
 import { useAppSelector } from "hooks";
-import { OUser } from "models/IUser";
+import IUser from "models/IUser";
 import React from "react";
 import userSelector from "selectors/userSelector";
 
 function UserInfo() {
-  let userInfo: OUser | null = useAppSelector(userSelector().userInfo);
-  let createdAt: string = userInfo.createdAt;
+  let userInfo: IUser | null = useAppSelector(userSelector().userInfo);
+  let userName: string = "";
+  let name: string = "";
+  let createdAt: string = "";
+  let dateStr: string = "";
+  if (userInfo?.createdAt) {
+    createdAt = userInfo.createdAt;
+    let newDate: Date = new Date(createdAt);
+    let year: number = newDate.getFullYear();
+    let month: number = newDate.getMonth() + 1;
+    let day: number = newDate.getDate();
+    dateStr = day + "/" + month + "/" + year;
+  }
+  if (userInfo?.username) {
+    userName = userInfo.username;
+  }
+  if (userInfo?.name) {
+    name = userInfo?.name;
+  }
   //let { createdAt }: OUser = userInfo;
-  let newDate: Date = new Date(createdAt);
-  let year: number = newDate.getFullYear();
-  let month: number = newDate.getMonth() + 1;
-  let day: number = newDate.getDate();
-  let dateStr: string = day + "/" + month + "/" + year;
+
   return (
     <form className="border p-5">
       <div className="flex justify-between items-center">
@@ -27,7 +40,7 @@ function UserInfo() {
             <div className="w-60 flex items-center justify-end">
               <b>Username</b>
             </div>
-            <div className="grow">{userInfo.username}</div>
+            <div className="grow">{userName}</div>
           </div>
         </div>
         <div className="flex flex-col w-full">
@@ -35,7 +48,7 @@ function UserInfo() {
             <div className="w-60 flex items-center justify-end">
               <b>Name</b>
             </div>
-            <div className="grow">{userInfo.name}</div>
+            <div className="grow">{name}</div>
           </div>
         </div>
         <div className="flex flex-col w-full">

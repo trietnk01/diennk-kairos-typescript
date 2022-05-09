@@ -1,24 +1,33 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { END_POINT } from "configs";
-import { IUser } from "models/IUser";
-const initialState: IUser = {
+import IStateUser from "models/IStateUser";
+import IUser from "models/IUser";
+const initialState: IStateUser = {
   isLogin: false,
-  userInfo: {},
+  userInfo: null,
 };
-export const userSlice = createSlice({
+export default createSlice({
   name: "user-slice",
   initialState,
   reducers: {
     login: (state, action: PayloadAction<IUser>) => {
       state.isLogin = true;
-      state.userInfo = action.payload.userInfo;
-      localStorage.setItem(END_POINT.USER_LOGIN, JSON.stringify(action.payload.userInfo));
+      const userInfo: IUser = {
+        avatar: action.payload.avatar,
+        createdAt: action.payload.createdAt,
+        id: action.payload.id,
+        name: action.payload.name,
+        password: action.payload.password,
+        username: action.payload.username,
+        expiry: action.payload.expiry,
+      };
+      state.userInfo = userInfo;
+      localStorage.setItem(END_POINT.USER_LOGIN, JSON.stringify(userInfo));
     },
     logout: (state) => {
       state.isLogin = false;
-      state.userInfo = {};
+      state.userInfo = null;
       localStorage.setItem(END_POINT.USER_LOGIN, "");
     },
   },
 });
-export default userSlice.reducer;

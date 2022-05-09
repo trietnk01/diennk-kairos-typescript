@@ -1,12 +1,12 @@
-import loadingAction from "actions/loadingAction";
-import notifyAction from "actions/notifyAction";
-import userAction from "actions/userAction";
 import axios from "axios";
 import { END_POINT, NOTIFY_NAME, PATH_NAME } from "configs";
 import { useAppDispatch } from "hooks";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import loadingSlice from "slices/loadingSlice";
+import notifySlice from "slices/notifySlice";
+import userSlice from "slices/userSlice";
 
 interface LoginInput {
   username: string;
@@ -21,9 +21,9 @@ function Login() {
     formState: { errors },
   } = useForm<LoginInput>();
   function onSubmit({ username, password }: LoginInput) {
-    let msg = new Array(0);
-    let typeNotify = "";
-    dispatch(loadingAction().showLoading());
+    const msg: Array<string> = [];
+    let typeNotify: string = "";
+    dispatch(loadingSlice.actions.showLoading());
     axios({
       method: "GET",
       url: "https://6164054db55edc00175c1cc9.mockapi.io/v1/auth/1",
@@ -44,7 +44,7 @@ function Login() {
           }
           if (checkedUserNamePassword) {
             dispatch(
-              userAction().login({
+              userSlice.actions.login({
                 ...res.data,
                 expiry: Date.now(),
               })
@@ -55,22 +55,22 @@ function Login() {
           msg.push(NOTIFY_NAME.NOTI_LOGIN_FAIL);
           typeNotify = NOTIFY_NAME.NOTI_TYPE_DANGER;
         }
-        dispatch(loadingAction().hideLoading());
+        dispatch(loadingSlice.actions.hideLoading());
         dispatch(
-          notifyAction().showNotify({
+          notifySlice.actions.showNotify({
             type: typeNotify,
             msg,
           })
         );
       })
-      .catch(function (err) {
+      .catch(function (err: any) {
         dispatch(
-          notifyAction().showNotify({
+          notifySlice.actions.showNotify({
             type: NOTIFY_NAME.NOTI_TYPE_DANGER,
             msg: err.message,
           })
         );
-        dispatch(loadingAction().hideLoading());
+        dispatch(loadingSlice.actions.hideLoading());
       });
   }
   return (

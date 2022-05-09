@@ -1,6 +1,6 @@
 import { PATH_NAME } from "configs";
 import { useAppSelector } from "hooks";
-import { IChildren } from "models/IChildren";
+import IChildren from "models/IChildren";
 import React, { Fragment } from "react";
 import { Navigate } from "react-router-dom";
 import userSelector from "selectors/userSelector";
