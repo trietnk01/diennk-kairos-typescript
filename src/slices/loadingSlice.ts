@@ -8,10 +8,10 @@ export default createSlice({
   name: "loading-slice",
   initialState,
   reducers: {
-    showLoading: (state) => {
+    showSpinner: (state: any) => {
       state.isShow = true;
     },
-    hideLoading: (state) => {
+    hideSpinner: (state: any) => {
       state.isShow = false;
     },
   },

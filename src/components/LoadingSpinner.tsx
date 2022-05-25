@@ -1,9 +1,9 @@
 import { useAppSelector } from "hooks";
 import React from "react";
-import loadingSelector from "selectors/loadingSelector";
+import { RootState } from "redux/store";
 
 function LoadingSpinner() {
-  const isShow: boolean = useAppSelector(loadingSelector().isShow);
+  const isShow: boolean = useAppSelector((state: RootState) => state.loadingReducer.isShow);
   return (
     <React.Fragment>
       {isShow && (

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useEffect } from "react";
-import notifySelector from "selectors/notifySelector";
+import { RootState } from "redux/store";
 import notifySlice from "slices/notifySlice";
 
 function Notify() {
@@ -16,11 +16,10 @@ function Notify() {
       clearTimeout(timeout);
     };
   });
-
   let alertHtml: React.ReactNode = null;
-  const isShow: boolean | undefined = useAppSelector(notifySelector().isShow);
-  const typeNotify: string = useAppSelector(notifySelector().type);
-  const msgNotify: Array<string> = useAppSelector(notifySelector().msg);
+  const isShow: boolean | undefined = useAppSelector((state: RootState) => state.notifyReducer.isShow);
+  const typeNotify: string = useAppSelector((state: RootState) => state.notifyReducer.type);
+  const msgNotify: Array<string> = useAppSelector((state: RootState) => state.notifyReducer.msg);
   let elShow: string = "";
   let displayNotify: string = "hidden";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {

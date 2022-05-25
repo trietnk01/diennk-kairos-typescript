@@ -8,6 +8,7 @@ const Home = lazy(() => import("pages/Home"));
 const Login = lazy(() => import("pages/Login"));
 const Dashboard = lazy(() => import("pages/Dashboard"));
 const NoMatchFrm = lazy(() => import("pages/NoMatchFrm"));
+const UserInfo = lazy(() => import("pages/UserInfo"));
 function RoutesMain() {
   return (
     <BrowserRouter>
@@ -28,6 +29,14 @@ function RoutesMain() {
               element={
                 <AuthGuard>
                   <Dashboard />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path={PATH_NAME.ADMIN_USER_INFO}
+              element={
+                <AuthGuard>
+                  <UserInfo />
                 </AuthGuard>
               }
             />

@@ -5,6 +5,8 @@ import reportWebVitals from "reportWebVitals";
 import { Provider } from "react-redux";
 
 import { store } from "./redux/store";
+import initRequest from "services/initRequest";
+initRequest();
 ReactDOM.render(
   <Provider store={store}>
     <App />

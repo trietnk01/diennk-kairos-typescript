@@ -9,12 +9,12 @@ export default createSlice({
   name: "notify-slice",
   initialState,
   reducers: {
-    showNotify: (state, action: PayloadAction<IStateNotify>) => {
+    showNotify: (state: any, action: PayloadAction<IStateNotify>) => {
       state.isShow = true;
       state.type = action.payload.type;
       state.msg = action.payload.msg;
     },
-    hideNotify: (state) => {
+    hideNotify: (state: any) => {
       state.isShow = false;
     },
   },

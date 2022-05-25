@@ -1,14 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "slices/userSlice";
-import loadingReducer from "slices/loadingSlice";
-import notifyReducer from "slices/notifySlice";
+import loadingSlice from "slices/loadingSlice";
+import notifySlice from "slices/notifySlice";
+import userSlice from "slices/userSlice";
 
 export const store = configureStore({
-  reducer: {
-    user: userReducer.reducer,
-    loading: loadingReducer.reducer,
-    notify: notifyReducer.reducer,
-  },
+  reducer: { loadingReducer: loadingSlice.reducer, notifyReducer: notifySlice.reducer, userReducer: userSlice.reducer },
 });
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
