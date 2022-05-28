@@ -20,12 +20,7 @@ module.exports = {
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
-        "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "react/display-name": "off",    
-    "@typescript-eslint/no-inferrable-types": "off",     
-     "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
-     "@typescript-eslint/no-explicit-any": ["off"]
+    "rules": {        
+        "@typescript-eslint/no-explicit-any": ["off"]   ,           
     }
 }

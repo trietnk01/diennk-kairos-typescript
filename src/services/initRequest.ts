@@ -11,7 +11,7 @@ const item_axios: IAxios = {
 };
 export const axios_instance = axios.create(item_axios);
 function initRequest(): void {
-  let requestCount: number = 0;
+  let requestCount: number | 0 = 0;
   function decreaseRequestCount() {
     requestCount = requestCount - 1;
     if (requestCount === 0) {
@@ -37,8 +37,6 @@ function initRequest(): void {
       return Promise.reject(err);
     }
   );
-
-  // Add a response interceptor
   axios_instance.interceptors.response.use(
     function (res: any): any {
       if (<boolean>res.config.showSpinner) {

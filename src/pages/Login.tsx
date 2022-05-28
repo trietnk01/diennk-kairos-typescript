@@ -17,7 +17,7 @@ function Login() {
   } = useForm<IUser>();
   async function onSubmit({ email, password }: IUser) {
     const msg: Array<string> = [];
-    let typeNotify: string = "";
+    let typeNotify: string | null = "";
     try {
       const bodyData: IUser = { email, password };
       const res: any = await loginUser("/user/login", bodyData);

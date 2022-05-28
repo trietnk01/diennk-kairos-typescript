@@ -20,8 +20,8 @@ function Notify() {
   const isShow: boolean | undefined = useAppSelector((state: RootState) => state.notifyReducer.isShow);
   const typeNotify: string = useAppSelector((state: RootState) => state.notifyReducer.type);
   const msgNotify: Array<string> = useAppSelector((state: RootState) => state.notifyReducer.msg);
-  let elShow: string = "";
-  let displayNotify: string = "hidden";
+  let elShow: string | null = "";
+  let displayNotify: string | null = "hidden";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {
     alertHtml = msgNotify.map((item, idx) => {
       return <li key={idx}>{item}</li>;
@@ -29,7 +29,7 @@ function Notify() {
     elShow = "el-show";
     displayNotify = "block";
   }
-  let bgColor: string = "";
+  let bgColor: string | null = "";
   switch (typeNotify) {
     case "danger":
       bgColor = "bg-red-400";
