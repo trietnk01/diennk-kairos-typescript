@@ -1,24 +1,3 @@
-/* begin MUI */
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { styled, useTheme } from "@mui/material/styles";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-/* end MUI */
 import { authenticated } from "apis/user.api";
 import "assets/admin/admin-main.scss";
 import { PATH_NAME } from "configs";
@@ -27,6 +6,28 @@ import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import auth_service from "services/authService";
 import userSlice from "slices/userSlice";
+/* begin MUI */
+import { styled, useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import CssBaseline from "@mui/material/CssBaseline";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+/* end MUI */
+
 /* function CustomLink({ to, children, ...props }: ICustomlink) {
   const resolved = useResolvedPath(to);
   const match = useMatch({ path: resolved.pathname, end: true });
@@ -91,6 +92,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
 }));
+
 /* end MUI */
 const AdminMaster: React.FunctionComponent = () => {
   /* begin MUI */
@@ -133,7 +135,7 @@ const AdminMaster: React.FunctionComponent = () => {
     }
     checkedAuthUser();
   }, []);
-  const handleLogout: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
+  const handleLogout = (): void => {
     auth_service.clearStorage();
     navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
   };
@@ -170,7 +172,7 @@ const AdminMaster: React.FunctionComponent = () => {
         <List>
           {["Logout"].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={(event: React.ChangeEventHandler<HTMLInputElement>) => handleLogout()}>
+              <ListItemButton onClick={handleLogout}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
