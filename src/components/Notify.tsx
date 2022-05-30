@@ -19,7 +19,7 @@ function Notify() {
   let alertHtml: React.ReactNode = null;
   const isShow: boolean | undefined = useAppSelector((state: RootState) => state.notifyReducer.isShow);
   const typeNotify: string = useAppSelector((state: RootState) => state.notifyReducer.type);
-  const msgNotify: Array<string> = useAppSelector((state: RootState) => state.notifyReducer.msg);
+  const msgNotify: Array<string> | null = useAppSelector((state: RootState) => state.notifyReducer.msg);
   let elShow: string | null = "";
   let displayNotify: string | null = "hidden";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {

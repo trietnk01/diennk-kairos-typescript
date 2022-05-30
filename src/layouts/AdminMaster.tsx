@@ -110,7 +110,7 @@ const AdminMaster: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const accessToken: string = auth_service.getAccessToken();
+    /* const accessToken: string = auth_service.getAccessToken();
     if (!accessToken) {
       auth_service.clearStorage();
       return;
@@ -132,7 +132,7 @@ const AdminMaster: React.FunctionComponent = () => {
         }
       }
     }
-    checkedAuthUser();
+    checkedAuthUser(); */
   }, []);
   const handleLogout = (): void => {
     auth_service.clearStorage();
