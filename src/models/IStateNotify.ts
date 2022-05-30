@@ -1,5 +1,5 @@
 export default interface IStateNotify {
-  isShow?: boolean;
+  isShow: boolean;
   type: string;
-  msg: Array<string> | null;
+  msg: Array<string> | [] | any;
 }

@@ -1,31 +1,33 @@
-import { authenticated } from "apis/user.api";
-import "assets/admin/admin-main.scss";
-import { PATH_NAME } from "configs";
-import { useAppDispatch } from "hooks";
-import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import auth_service from "services/authService";
-import userSlice from "slices/userSlice";
-/* begin MUI */
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+/* begin MUI */
+import { styled, useTheme } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { authenticated, logout } from "apis/user.api";
+import "assets/admin/admin-main.scss";
+import { NOTIFY_NAME, PATH_NAME } from "configs";
+import { useAppDispatch } from "hooks";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import auth_service from "services/authService";
+import notifySlice from "slices/notifySlice";
+import userSlice from "slices/userSlice";
+
 /* end MUI */
 
 /* function CustomLink({ to, children, ...props }: ICustomlink) {
@@ -110,33 +112,38 @@ const AdminMaster: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    /* const accessToken: string = auth_service.getAccessToken();
+    const accessToken: string = auth_service.getAccessToken();
     if (!accessToken) {
       auth_service.clearStorage();
       return;
     }
     async function checkedAuthUser() {
-      try {
-        const res = await authenticated("/auth", accessToken);
-        if (!res.data.isSuccess) {
-          auth_service.clearStorage();
-          navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
-          return false;
-        }
+      const res: any = await authenticated("/authenticated", accessToken);
+      if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
+        console.log("checkedAuthUser = ", res);
         dispatch(userSlice.actions.setUser(res.data.user));
-      } catch (err: any) {
-        if (err.status !== 200) {
-          auth_service.clearStorage();
-          navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
-          return false;
-        }
+      } else {
+        auth_service.clearStorage();
+        navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
+        return;
       }
     }
-    checkedAuthUser(); */
+    checkedAuthUser();
   }, []);
-  const handleLogout = (): void => {
-    auth_service.clearStorage();
-    navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
+
+  const handleLogout = async () => {
+    const accessToken: string = auth_service.getAccessToken();
+    const res: any = await logout("/logout", accessToken);
+    let msg: Array<string> | [] = new Array(0);
+    if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
+      msg = res.data.msg;
+      auth_service.clearStorage();
+      dispatch(notifySlice.actions.showNotify({ type: NOTIFY_NAME.NOTI_TYPE_SUCCESS, msg }));
+      navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
+    } else {
+      msg = res.data.msg;
+      dispatch(notifySlice.actions.showNotify({ type: NOTIFY_NAME.NOTI_TYPE_DANGER, msg }));
+    }
   };
   return (
     <Box sx={{ display: "flex" }}>

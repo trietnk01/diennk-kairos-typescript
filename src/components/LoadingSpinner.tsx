@@ -3,7 +3,7 @@ import React from "react";
 import { RootState } from "redux/store";
 
 function LoadingSpinner() {
-  const isShow: boolean = useAppSelector((state: RootState) => state.loadingReducer.isShow);
+  const isShow: boolean | undefined = useAppSelector((state: RootState) => state.loadingReducer.isShow);
   return (
     <React.Fragment>
       {isShow && (

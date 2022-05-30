@@ -1,4 +1,4 @@
-import { loginUser } from "apis/user.api";
+import { login } from "apis/user.api";
 import { NOTIFY_NAME, PATH_NAME } from "configs";
 import { useAppDispatch } from "hooks";
 import IUser from "models/IUser";
@@ -16,10 +16,10 @@ function Login() {
     formState: { errors },
   } = useForm<IUser>();
   async function onSubmit({ email, password }: IUser) {
-    let msg: Array<string> | null = new Array(0);
+    let msg: Array<string> | undefined | null = [];
     let typeNotify: string | null = "";
     const bodyData: IUser = { email, password };
-    const res: any = await loginUser("/login", bodyData);
+    const res: any = await login("/login", bodyData);
     if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
       const accessToken = res.data.token;
       auth_service.setAccessToken(accessToken);
@@ -28,7 +28,7 @@ function Login() {
     } else {
       typeNotify = NOTIFY_NAME.NOTI_TYPE_DANGER;
     }
-    msg = res.data.msg;
+    /* msg = res.data.msg; */
     dispatch(notifySlice.actions.showNotify({ type: typeNotify, msg }));
   }
   return (

@@ -1,5 +1,4 @@
 import { AxiosInstance } from "axios";
-import IConfig from "models/IConfig";
 import { axios_instance } from "./initRequest";
 
 class HttpRequest {
@@ -7,11 +6,11 @@ class HttpRequest {
   constructor() {
     this.api = axios_instance;
   }
-  async get(url: string, config: IConfig) {
+  async get(url: string, config: any) {
     return this.api.get(url, config);
   }
-  async post(url: string, bodyData: any, config: IConfig) {
-    return this.api.post(url, bodyData, config);
+  async post(url: string, data: any, config: any) {
+    return this.api.post(url, data, config);
   }
 }
 const http_request = new HttpRequest();
