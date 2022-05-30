@@ -12,7 +12,7 @@ const item_axios: IAxios = {
 export const axios_instance = axios.create(item_axios);
 function initRequest(): void {
   let requestCount: number | 0 = 0;
-  function decreaseRequestCount() {
+  function decreaseRequestCount(): void {
     requestCount = requestCount - 1;
     if (requestCount === 0) {
       store.dispatch(loadingSlice.actions.hideSpinner());

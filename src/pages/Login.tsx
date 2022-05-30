@@ -16,12 +16,11 @@ function Login() {
     formState: { errors },
   } = useForm<IUser>();
   async function onSubmit({ email, password }: IUser) {
-    const msg: Array<string> = [];
+    const msg: Array<string> | null = [];
     let typeNotify: string | null = "";
     try {
       const bodyData: IUser = { email, password };
       const res: any = await loginUser("/user/login", bodyData);
-      console.log("resLogin = ", res);
       if (res && res.data && res.data.isSucess === true && res.data.token) {
         const accessToken = res.data.token;
         auth_service.setAccessToken(accessToken);

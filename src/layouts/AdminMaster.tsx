@@ -118,7 +118,6 @@ const AdminMaster: React.FunctionComponent = () => {
     async function checkedAuthUser() {
       try {
         const res = await authenticated("/auth", accessToken);
-        console.log("resAuthenticated = ", res);
         if (!res.data.isSuccess) {
           auth_service.clearStorage();
           navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
