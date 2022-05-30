@@ -1,4 +1,3 @@
-import "assets/tailwind.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import LoadingSpinner from "components/LoadingSpinner";
 import Notify from "components/Notify";
