@@ -118,11 +118,17 @@ const AdminMaster: React.FunctionComponent = () => {
       return;
     }
     async function checkedAuthUser() {
-      const res: any = await authenticated("/authenticated", accessToken);
-      if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
-        console.log("checkedAuthUser = ", res);
-        dispatch(userSlice.actions.setUser(res.data.user));
-      } else {
+      try {
+        const res: any = await authenticated("/authenticated", accessToken);
+        if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
+          console.log("checkedAuthUser = ", res);
+          dispatch(userSlice.actions.setUser(res.data.user));
+        } else {
+          auth_service.clearStorage();
+          navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
+          return;
+        }
+      } catch (err: any) {
         auth_service.clearStorage();
         navigate(`/${PATH_NAME.ADMIN_LOGIN}`);
         return;

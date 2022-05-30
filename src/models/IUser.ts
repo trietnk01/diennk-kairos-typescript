@@ -1,12 +1,12 @@
 export default interface IUser {
-  avatar?: string | null;
-  created_at?: string | null;
-  email?: string | null;
-  password?: string | null;
-  email_verified_at?: string | null;
-  id?: number | 0;
-  name?: string | null;
-  phone?: string | null;
+  avatar?: string;
+  created_at?: string;
+  email?: string;
+  password?: string;
+  email_verified_at?: string;
+  id?: number;
+  name?: string;
+  phone?: string;
   status?: number | 0;
-  updated_at?: string | null;
+  updated_at?: string;
 }

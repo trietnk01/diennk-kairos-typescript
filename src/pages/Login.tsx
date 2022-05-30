@@ -16,7 +16,7 @@ function Login() {
     formState: { errors },
   } = useForm<IUser>();
   async function onSubmit({ email, password }: IUser) {
-    let msg: Array<string> | undefined | null = [];
+    let msg: Array<string> = new Array<string>(0);
     let typeNotify: string | null = "";
     const bodyData: IUser = { email, password };
     const res: any = await login("/login", bodyData);
@@ -28,7 +28,7 @@ function Login() {
     } else {
       typeNotify = NOTIFY_NAME.NOTI_TYPE_DANGER;
     }
-    /* msg = res.data.msg; */
+    msg = res.data.msg;
     dispatch(notifySlice.actions.showNotify({ type: typeNotify, msg }));
   }
   return (

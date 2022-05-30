@@ -3,7 +3,7 @@ import IStateNotify from "models/IStateNotify";
 const initialState: IStateNotify = {
   isShow: false,
   type: "success",
-  msg: Array<string>(0) || undefined || null,
+  msg: new Array<string>(0),
 };
 export default createSlice({
   name: "notify-slice",
