@@ -1,8 +1,10 @@
+import { Box } from "@mui/material";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useEffect } from "react";
 import { RootState } from "redux/store";
 import notifySlice from "slices/notifySlice";
-
+import { red, yellow, cyan } from "@mui/material/colors";
 function Notify() {
   const dispatch = useAppDispatch();
   function handleClose(): void {
@@ -11,15 +13,15 @@ function Notify() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       dispatch(notifySlice.actions.hideNotify());
-    }, 3000);
+    }, 30000);
     return () => {
       clearTimeout(timeout);
     };
   });
   let alertHtml: React.ReactNode = null;
   const isShow: boolean | undefined = useAppSelector((state: RootState) => state.notifyReducer.isShow);
-  const typeNotify: string | undefined = useAppSelector((state: RootState) => state.notifyReducer.type);
-  const msgNotify: Array<string> | undefined = useAppSelector((state: RootState) => state.notifyReducer.msg);
+  const typeNotify: string | undefined | null = useAppSelector((state: RootState) => state.notifyReducer.type);
+  const msgNotify: Array<string> | undefined | null = useAppSelector((state: RootState) => state.notifyReducer.msg);
   let elShow: string | null = "";
   let displayNotify: string | null = "hidden";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {
@@ -27,31 +29,31 @@ function Notify() {
       return <li key={idx}>{item}</li>;
     });
     elShow = "el-show";
-    displayNotify = "block";
+    displayNotify = "flex";
   }
   let bgColor: string | null = "";
   switch (typeNotify) {
     case "danger":
-      bgColor = "bg-red-400";
+      bgColor = red[400];
       break;
     case "warning":
-      bgColor = "bg-yellow-400";
+      bgColor = yellow[400];
       break;
     case "success":
-      bgColor = "bg-cyan-400";
+      bgColor = cyan[400];
       break;
   }
   return (
-    <div className={`notify-container bg-screenOpacity fixed top-0 left-0 w-screen h-screen ${elShow} ${displayNotify}`}>
-      <div className={`alert-container top-1/2 left-1/2 p-2 rounded absolute ${bgColor}`}>
-        <div className="close bg-white absolute rounded-full">
-          <button type="button" name="btnClose" className="bg-transparent border-0 flex w-full h-full items-center justify-center" onClick={handleClose}>
-            <i className="fa fa-times" aria-hidden="true"></i>
+    <Box className={`notify-container ${elShow} ${displayNotify}`} sx={{ backgroundColor: "rgba(0, 0, 0, 0.76)", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", justifyContent: "center", alignItems: "center" }}>
+      <Box sx={{ width: "400px", position: "relative", padding: "10px 10px", borderRadius: "3px", backgroundColor: bgColor }}>
+        <Box sx={{ top: "-15px", right: "-15px", width: "25px", height: "25px", backgroundColor: "#FFFFFF", position: "absolute", borderRadius: "100%" }}>
+          <button type="button" name="btnClose" style={{ background: "transparent", border: "0", display: "flex", width: "100%", height: "100%", justifyContent: "center", alignItems: "center" }} onClick={handleClose}>
+            <HighlightOffIcon></HighlightOffIcon>
           </button>
-        </div>
-        <ul className="mb-0">{alertHtml}</ul>
-      </div>
-    </div>
+        </Box>
+        <ul style={{ marginBottom: 0 }}>{alertHtml}</ul>
+      </Box>
+    </Box>
   );
 }
 

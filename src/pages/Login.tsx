@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import auth_service from "services/authService";
 import notifySlice from "slices/notifySlice";
+import { red } from "@mui/material/colors";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
 function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -32,27 +35,27 @@ function Login() {
     dispatch(notifySlice.actions.showNotify({ type: typeNotify, msg }));
   }
   return (
-    <section className="sectionLogin h-screen text-base text-white">
-      <div className="xForm absolute rounded px-10 top-1/2 left-1/2 flex items-center">
-        <div className="frmContent relative w-full">
-          <h1 className="mb-4 text-center text-4xl">Login</h1>
+    <section className="sectionLogin" style={{ width: "100vw", height: "100vh", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className="xForm" style={{ borderRadius: "5px", width: "320px", height: "480px", backgroundColor: "rgba(255, 255, 255, 0.1)", boxShadow: "0 5px 35px rgba(0, 0, 0, 0.2)", display: "flex", alignItems: "center", padding: "0 10px" }}>
+        <div className="frmContent" style={{ position: "relative", width: "100%" }}>
+          <h1 style={{ marginBottom: "4px", textAlign: "center", fontSize: "30px" }}>Login</h1>
           <form className="frmLogin" onSubmit={handleSubmit(onSubmit)}>
-            <div className="relative mb-2">
-              <div>
-                <input type="text" className="txtInput font-light outline-0 border-0 rounded px-2.5 py-2.5 w-full bg-transparent" {...register("email", { required: true })} />
-                <i className="iconLogin absolute fa fa-envelope-o" aria-hidden="true"></i>
+            <div style={{ marginBottom: "2px" }}>
+              <div style={{ position: "relative" }}>
+                <input type="text" className="txtInput" {...register("email", { required: true })} />
+                <MailOutlineIcon className="iconLogin"></MailOutlineIcon>
               </div>
-              {errors.email && <span className="text-red-500">Email is required</span>}
+              {errors.email && <span style={{ color: red[400] }}>Email is required</span>}
             </div>
-            <div className="relative mb-2">
-              <div>
-                <input type="password" className="txtInput font-light outline-0 border-0 rounded px-2.5 py-2.5 w-full bg-transparent" {...register("password", { required: true })} />
-                <i className="iconLogin absolute fa fa-key" aria-hidden="true"></i>
+            <div style={{ marginBottom: "2px" }}>
+              <div style={{ position: "relative" }}>
+                <input type="password" className="txtInput" {...register("password", { required: true })} />
+                <KeyOutlinedIcon className="iconLogin"></KeyOutlinedIcon>
               </div>
-              {errors.password && <span className="text-red-500">Password is required</span>}
+              {errors.password && <span style={{ color: red[400] }}>Password is required</span>}
             </div>
-            <div className="relative mb-2 flex justify-center">
-              <button type="submit" name="btn_login" className="btnLogin font-semibold relative flex items-center justify-center overflow-hidden">
+            <div style={{ position: "relative", marginBottom: "2px", display: "flex", justifyContent: "center" }}>
+              <button type="submit" name="btn_login" className="btnLogin">
                 Login
               </button>
             </div>
