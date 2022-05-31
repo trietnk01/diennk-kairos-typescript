@@ -10,7 +10,20 @@ import notifySlice from "slices/notifySlice";
 import { red } from "@mui/material/colors";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
+import { makeStyles } from "@mui/material";
+const useStyles = makeStyles({
+  sectionLogin: {
+    width: "100vw",
+    height: "100vh",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    /* backgroundImage:  linear-gradient(-30deg, #03a9f4 0%, #3a78b7 50%, #262626 50%, #607d8b 100%) */
+  },
+});
 function Login() {
+  const classes = useStyles();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {
@@ -34,36 +47,7 @@ function Login() {
     msg = res.data.msg;
     dispatch(notifySlice.actions.showNotify({ type: typeNotify, msg }));
   }
-  return (
-    <section className="sectionLogin" style={{ width: "100vw", height: "100vh", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div className="xForm" style={{ borderRadius: "5px", width: "320px", height: "480px", backgroundColor: "rgba(255, 255, 255, 0.1)", boxShadow: "0 5px 35px rgba(0, 0, 0, 0.2)", display: "flex", alignItems: "center", padding: "0 10px" }}>
-        <div className="frmContent" style={{ position: "relative", width: "100%" }}>
-          <h1 style={{ marginBottom: "4px", textAlign: "center", fontSize: "30px" }}>Login</h1>
-          <form className="frmLogin" onSubmit={handleSubmit(onSubmit)}>
-            <div style={{ marginBottom: "2px" }}>
-              <div style={{ position: "relative" }}>
-                <input type="text" className="txtInput" {...register("email", { required: true })} />
-                <MailOutlineIcon className="iconLogin"></MailOutlineIcon>
-              </div>
-              {errors.email && <span style={{ color: red[400] }}>Email is required</span>}
-            </div>
-            <div style={{ marginBottom: "2px" }}>
-              <div style={{ position: "relative" }}>
-                <input type="password" className="txtInput" {...register("password", { required: true })} />
-                <KeyOutlinedIcon className="iconLogin"></KeyOutlinedIcon>
-              </div>
-              {errors.password && <span style={{ color: red[400] }}>Password is required</span>}
-            </div>
-            <div style={{ position: "relative", marginBottom: "2px", display: "flex", justifyContent: "center" }}>
-              <button type="submit" name="btn_login" className="btnLogin">
-                Login
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
+  return <section className={classes.sectionLogin}></section>;
 }
 
 export default Login;
