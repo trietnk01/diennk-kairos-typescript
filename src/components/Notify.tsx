@@ -1,10 +1,9 @@
-import { Box } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useEffect } from "react";
 import { RootState } from "redux/store";
 import notifySlice from "slices/notifySlice";
-import { red, yellow, cyan } from "@mui/material/colors";
+
 function Notify() {
   const dispatch = useAppDispatch();
   function handleClose(): void {
@@ -22,38 +21,38 @@ function Notify() {
   const isShow: boolean | undefined = useAppSelector((state: RootState) => state.notifyReducer.isShow);
   const typeNotify: string | undefined | null = useAppSelector((state: RootState) => state.notifyReducer.type);
   const msgNotify: Array<string> | undefined | null = useAppSelector((state: RootState) => state.notifyReducer.msg);
-  let elShow: string | null = "";
-  let displayNotify: string | null = "hidden";
+  let displayNotify: string | null = "";
   if (isShow && Array.isArray(msgNotify) && msgNotify.length > 0) {
     alertHtml = msgNotify.map((item, idx) => {
       return <li key={idx}>{item}</li>;
     });
-    elShow = "el-show";
     displayNotify = "flex";
   }
   let bgColor: string | null = "";
   switch (typeNotify) {
     case "danger":
-      bgColor = red[400];
+      bgColor = "#ff5d83";
       break;
     case "warning":
-      bgColor = yellow[400];
+      bgColor = "#f0d916";
       break;
     case "success":
-      bgColor = cyan[400];
+      bgColor = "#55d8ab";
       break;
   }
   return (
-    <Box className={`notify-container ${elShow} ${displayNotify}`} sx={{ backgroundColor: "rgba(0, 0, 0, 0.76)", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", justifyContent: "center", alignItems: "center" }}>
-      <Box sx={{ width: "400px", position: "relative", padding: "10px 10px", borderRadius: "3px", backgroundColor: bgColor }}>
-        <Box sx={{ top: "-15px", right: "-15px", width: "25px", height: "25px", backgroundColor: "#FFFFFF", position: "absolute", borderRadius: "100%" }}>
-          <button type="button" name="btnClose" style={{ background: "transparent", border: "0", display: "flex", width: "100%", height: "100%", justifyContent: "center", alignItems: "center" }} onClick={handleClose}>
-            <HighlightOffIcon></HighlightOffIcon>
-          </button>
-        </Box>
-        <ul style={{ marginBottom: 0 }}>{alertHtml}</ul>
-      </Box>
-    </Box>
+    <React.Fragment>
+      {isShow && (
+        <div style={{ display: displayNotify, backgroundColor: "rgba(0, 0, 0, 0.76)", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ width: "400px", position: "relative", padding: "10px 10px", borderRadius: "3px", backgroundColor: bgColor }}>
+            <button type="button" name="btnClose" style={{ position: "absolute", top: "-20px", right: "-35px", background: "transparent", border: "0", display: "flex", justifyContent: "center", alignItems: "center", color: "#fff", cursor: "pointer" }} onClick={handleClose}>
+              <HighlightOffIcon sx={{ fontSize: 35 }} />
+            </button>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>{alertHtml}</ul>
+          </div>
+        </div>
+      )}
+    </React.Fragment>
   );
 }
 

@@ -7,23 +7,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import auth_service from "services/authService";
 import notifySlice from "slices/notifySlice";
-import { red } from "@mui/material/colors";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
-import { makeStyles } from "@mui/material";
-const useStyles = makeStyles({
-  sectionLogin: {
-    width: "100vw",
-    height: "100vh",
-    color: "#fff",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    /* backgroundImage:  linear-gradient(-30deg, #03a9f4 0%, #3a78b7 50%, #262626 50%, #607d8b 100%) */
-  },
-});
+
 function Login() {
-  const classes = useStyles();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {
@@ -40,14 +25,39 @@ function Login() {
       const accessToken = res.data.token;
       auth_service.setAccessToken(accessToken);
       typeNotify = NOTIFY_NAME.NOTI_TYPE_SUCCESS;
-      navigate(`/${PATH_NAME.ADMIN_MASTER}/${PATH_NAME.ADMIN_USER_INFO}`);
+      navigate(`/${PATH_NAME.ADMIN_MASTER}/${PATH_NAME.ADMIN_HOME}`);
     } else {
       typeNotify = NOTIFY_NAME.NOTI_TYPE_DANGER;
     }
     msg = res.data.msg;
     dispatch(notifySlice.actions.showNotify({ type: typeNotify, msg }));
   }
-  return <section className={classes.sectionLogin}></section>;
+  return (
+    <section className="sectionLogin" style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div className="xForm" style={{ position: "relative", width: "320px", height: "480px", background: "rgba(255, 255, 255, 0.1)", boxShadow: "0 5px 35px rgba(0, 0, 0, 0.2)", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+        <h1 style={{ color: "#FFF", marginBottom: "20px" }}>Login</h1>
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "center" }} onSubmit={handleSubmit(onSubmit)}>
+          <div style={{ marginBottom: "10px" }}>
+            <div style={{ position: "relative" }}>
+              <input type="text" placeholder="Email" style={{ boxShadow: "inset 0 0 25px rgba(0, 0, 0, 0.2)", outline: "0", border: "0", borderRadius: "5px", padding: "10px 10px", width: "100%", background: "transparent", color: "#FFF" }} {...register("email", { required: true })} />
+            </div>
+            {errors.email && <span style={{ color: "red" }}>Email is required</span>}
+          </div>
+          <div style={{ marginBottom: "10px" }}>
+            <div style={{ position: "relative" }}>
+              <input type="password" placeholder="Password" style={{ boxShadow: "inset 0 0 25px rgba(0, 0, 0, 0.2)", outline: "0", border: "0", borderRadius: "5px", padding: "10px 10px", width: "100%", background: "transparent", color: "#FFF" }} {...register("password", { required: true })} />
+            </div>
+            {errors.email && <span style={{ color: "red" }}>Password is required</span>}
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button type="submit" name="btnLogin" className="btnLogin" style={{ color: "#FFF", fontWeight: "600", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", width: "130px", height: "40px", background: "rgba(255, 255, 255, 0.05)", boxShadow: "0 15px 35px rgba(0, 0, 0, 0.2)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "20px", letterSpacing: "2px", transition: "0.5s", cursor: "pointer" }}>
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
 }
 
 export default Login;

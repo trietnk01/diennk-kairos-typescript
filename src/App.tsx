@@ -1,4 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline";
+import "assets/admin/admin-main.scss";
 import LoadingSpinner from "components/LoadingSpinner";
 import Notify from "components/Notify";
 import React, { Fragment } from "react";
