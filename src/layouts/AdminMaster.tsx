@@ -1,5 +1,4 @@
 import { authenticated, logout } from "apis/user.api";
-
 import { NOTIFY_NAME, PATH_NAME } from "configs";
 import { useAppDispatch } from "hooks";
 import React, { useEffect } from "react";
