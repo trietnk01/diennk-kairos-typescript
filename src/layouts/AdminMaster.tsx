@@ -32,9 +32,8 @@ const AdminMaster: React.FunctionComponent = () => {
     }
     async function checkedAuthUser() {
       try {
-        const res: any = await authenticated("/authenticated", accessToken);
+        const res: any = await authenticated("/authenticated");
         if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
-          console.log("checkedAuthUser = ", res);
           dispatch(userSlice.actions.setUser(res.data.user));
         } else {
           auth_service.clearStorage();
@@ -51,8 +50,7 @@ const AdminMaster: React.FunctionComponent = () => {
   }, []);
 
   const handleLogout = async () => {
-    const accessToken: string = auth_service.getAccessToken();
-    const res: any = await logout("/logout", accessToken);
+    const res: any = await logout("/logout");
     let msg: Array<string> | [] = new Array(0);
     if (res && parseInt(res.status) === 200 && res.data && res.data.checked === true) {
       msg = res.data.msg;

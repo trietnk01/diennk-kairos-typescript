@@ -1,4 +1,4 @@
 export default interface ICustomlink {
-  to?: string | null;
-  children?: React.ReactNode | string;
+  to: string;
+  children: React.ReactNode | string;
 }

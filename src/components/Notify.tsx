@@ -45,7 +45,7 @@ function Notify() {
       {isShow && (
         <div style={{ display: displayNotify, backgroundColor: "rgba(0, 0, 0, 0.76)", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", justifyContent: "center", alignItems: "center" }}>
           <div style={{ width: "400px", position: "relative", padding: "10px 10px", borderRadius: "3px", backgroundColor: bgColor }}>
-            <button type="button" name="btnClose" style={{ position: "absolute", top: "-20px", right: "-35px", background: "transparent", border: "0", display: "flex", justifyContent: "center", alignItems: "center", color: "#fff", cursor: "pointer" }} onClick={handleClose}>
+            <button type="button" name="btnClose" style={{ position: "absolute", top: "-30px", right: "-35px", background: "transparent", border: "0", display: "flex", justifyContent: "center", alignItems: "center", color: "#fff", cursor: "pointer" }} onClick={handleClose}>
               <HighlightOffIcon sx={{ fontSize: 35 }} />
             </button>
             <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>{alertHtml}</ul>

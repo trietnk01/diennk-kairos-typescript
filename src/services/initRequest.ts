@@ -26,7 +26,7 @@ function initRequest(): void {
       }
       const accessToken: string = auth_service.getAccessToken();
       if (accessToken) {
-        config.headers["x-auth-token"] = accessToken;
+        config.headers["Authorization"] = "Bearer " + accessToken;
       }
       return config;
     },
