@@ -6,6 +6,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const Login = lazy(() => import("pages/Login"));
 const Home = lazy(() => import("pages/Home"));
+const EventLoop = lazy(() => import("pages/EventLoop"));
 const NoMatchFrm = lazy(() => import("pages/NoMatchFrm"));
 function RoutesMain() {
   return (
@@ -27,6 +28,14 @@ function RoutesMain() {
               element={
                 <AuthGuard>
                   <Home />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path={PATH_NAME.ADMIN_EVENTLOOP}
+              element={
+                <AuthGuard>
+                  <EventLoop />
                 </AuthGuard>
               }
             />

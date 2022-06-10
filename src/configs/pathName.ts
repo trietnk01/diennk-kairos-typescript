@@ -3,4 +3,5 @@ export const PATH_NAME = {
   ADMIN_LOGIN: "admin-login",
   ADMIN_MASTER: "admin-master",
   ADMIN_HOME: "home",
+  ADMIN_EVENTLOOP: "event-loop",
 };

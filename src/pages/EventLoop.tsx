@@ -1,7 +1,6 @@
-import { getProfileById } from "apis/profile.api";
-import IProfile from "models/IProfile";
-import React, { useEffect } from "react";
-function Home() {
+import React from "react";
+
+function EventLoop() {
   const foo = () => {
     console.log("foo");
   };
@@ -13,12 +12,12 @@ function Home() {
   const bar = () => {
     setTimeout(() => {
       console.log("bar");
-    }, 10);
+    }, 300);
   };
   bar();
   promise1.then((val) => console.log(val));
   foo();
-  return <div>Home</div>;
+  return <div>EventLoop</div>;
 }
 
-export default Home;
+export default EventLoop;
